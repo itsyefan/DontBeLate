@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/DontBeLate/static/css/main.0961c6c1.css",
+    "main.js": "/DontBeLate/static/js/main.664ef4f8.js",
+    "static/js/787.cda612ba.chunk.js": "/DontBeLate/static/js/787.cda612ba.chunk.js",
+    "index.html": "/DontBeLate/index.html",
+    "main.0961c6c1.css.map": "/DontBeLate/static/css/main.0961c6c1.css.map",
+    "main.664ef4f8.js.map": "/DontBeLate/static/js/main.664ef4f8.js.map",
+    "787.cda612ba.chunk.js.map": "/DontBeLate/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0961c6c1.css",
+    "static/js/main.664ef4f8.js"
+  ]
+}
