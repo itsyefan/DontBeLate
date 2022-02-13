@@ -8,17 +8,17 @@ afterEach(() => {
 
 test('should render field container', () => {
     render(<InputField/>);
-    const fieldElement = screen.getByTestId("container");
+    const fieldElement = screen.getByTestId("field-container");
 
     expect(fieldElement).toBeInTheDocument();
 })
 
 test('should render input fields and buttons', () => {
     render(<InputField/>);
-    const fieldElement1 = screen.getByTestId("field-1");
-    const fieldElement2 = screen.getByTestId("field-2");
-    const fieldElement3 = screen.getByTestId("field-3");
-    const buttonElement = screen.getByTestId("button-1");
+    const fieldElement1 = screen.getByTestId("source-field");
+    const fieldElement2 = screen.getByTestId("destination-field");
+    const fieldElement3 = screen.getByTestId("arrival-field");
+    const buttonElement = screen.getByTestId("submit-button");
 
     expect(fieldElement1).toBeInTheDocument();
     expect(fieldElement2).toBeInTheDocument();
