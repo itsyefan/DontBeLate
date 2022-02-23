@@ -8,17 +8,14 @@ interface Props {
   setDestination: React.Dispatch<React.SetStateAction<string>>;
   time: string;
   setTime: React.Dispatch<React.SetStateAction<string>>;
+  getTrafficTime: (e: React.FormEvent) => void;
 }
 
-const InputField: React.FC<Props> = ({source, setSource, destination, setDestination, time, setTime}) => {
-  const handleSubmit = (e: Event) => {
-    e.preventDefault();
-    // ???
-  }
+const InputField: React.FC<Props> = ({source, setSource, destination, setDestination, time, setTime, getTrafficTime}) => {
 
   return (
     //Fields for address and time input
-    <form data-testid="field-container" className="input">
+    <form data-testid="field-container" className="input" onSubmit={getTrafficTime}>
       <input type="text"
         placeholder="Enter a source"
         data-testid="source-field"
@@ -49,7 +46,7 @@ const InputField: React.FC<Props> = ({source, setSource, destination, setDestina
         }
       />
 
-      <button type="button"
+      <button type="submit"
         data-testid="submit-button"
         className='submitButton'>
         Submit
