@@ -1,7 +1,7 @@
 import React from 'react';
 import "./style.css";
 
-interface Props {
+interface lookupProperties {
   source: string;
   setSource: React.Dispatch<React.SetStateAction<string>>;
   destination: string;
@@ -11,7 +11,7 @@ interface Props {
   getTrafficTime: (e: React.FormEvent) => void;
 }
 
-const InputField: React.FC<Props> = ({source, setSource, destination, setDestination, time, setTime, getTrafficTime}) => {
+const InputField: React.FC<lookupProperties> = ({source, setSource, destination, setDestination, time, setTime, getTrafficTime}) => {
 
   return (
     //Fields for address and time input

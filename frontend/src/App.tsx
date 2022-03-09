@@ -36,8 +36,8 @@ const App: React.FC = () => {
       }, callback
       );
 
-      function callback(response: any, status: any) {
-        if (status == 'OK') {
+      function callback(response: google.maps.DistanceMatrixResponse | null, status: google.maps.DistanceMatrixStatus) {
+        if (response != null) {
 
           var origins = response.originAddresses;
           var destinations = response.destinationAddresses;
@@ -59,10 +59,6 @@ const App: React.FC = () => {
           console.log("Address was not found.")
         }
       }
-
-    //setSource("");
-    //setDestination("");
-    //setTime("");
   };
 
 
