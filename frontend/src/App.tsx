@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import InputField from './components/InputField';
-import { GoogleMap, useJsApiLoader, DistanceMatrixService } from "@react-google-maps/api";
+import { useJsApiLoader } from "@react-google-maps/api";
+import LeaveTimeDisplay from './components/LeaveTimeDisplay';
 
 const App: React.FC = () => {
   const [source, setSource] = useState<string>("");
@@ -48,18 +49,8 @@ const App: React.FC = () => {
         var from = origins[0];
         var to = destinations[0];
 
-        console.log(duration);
+        setTrafficTime(duration);
 
-        /** 
-        for (var i = 0; i < origins.length; i++) {
-          var results = response.rows[i].elements;
-
-          for (var j = 0; j < results.length; j++) {
-
-          }
-        }
-
-        */
       }
       else {
         console.log("Address was not found.")
@@ -75,7 +66,7 @@ const App: React.FC = () => {
 
       <span className="heading">Don't Be Late</span>
       <InputField source={source} setSource={setSource} destination={destination} setDestination={setDestination} time={time} setTime={setTime} getTrafficTime={getTrafficTime}></InputField>
-
+      <LeaveTimeDisplay time={time} trafficTime={trafficTime}/>
     </div>
   );
 };
