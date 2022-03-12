@@ -1,5 +1,3 @@
-import { time } from 'console';
-import { totalmem } from 'os';
 import React from 'react'
 
 interface displayProperties {
@@ -10,7 +8,8 @@ interface displayProperties {
 const LeaveTimeDisplay: React.FC<displayProperties> = ({time, trafficTime}) => {
   return (
     <div>
-        {calcLeaveTime(time, trafficTime)}.
+        {console.log(trafficTime)}
+        {trafficTime === "" ? "" :calcLeaveTime(time, trafficTime)}
     </div>
   )
 }
@@ -38,7 +37,7 @@ let amOrPm = (minutes: number): string => {
     ? "0" + convertMinutes 
     : convertMinutes;
 
-  return suffix == "pm" 
+  return suffix === "pm" 
     ? (convertHours % 12) + ":" + finalMinutes + " " + suffix 
     : convertHours + ":" + finalMinutes + " " + suffix;
 }
