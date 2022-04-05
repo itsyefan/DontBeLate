@@ -1,21 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { initializeApp } from "firebase/app";
+import {
+    GoogleAuthProvider,
+    getAuth,
+    signInWithPopup,
+} from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function AuthPage() {
+    const auth = getAuth();
+    const navigate = useNavigate();
+    const [authing, setAuthing] = useState(false);
 
-    const firebaseConfig = {
-        apiKey: process.env.REACT_APP_FIREBASE_KEY,
-        authDomain: process.env.REACT_APP_DOMAIN,
-        projectId: process.env.REACT_APP_PROJECT_ID,
-        storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-        messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-        appId: process.env.REACT_APP_APP_ID
-    };
+    const signInWithGoogle = async () => {
+        setAuthing(true);
 
-    const app = initializeApp(firebaseConfig);
+        signInWithPopup(auth, new GoogleAuthProvider())
+            .then(response => {
+                console.log(response.user.uid);
+                navigate('/');
+            })
+            .catch(error => {
+                console.log(error);
+                setAuthing(false);
+            })
+    }
 
     return (
-        <div>hi</div>
+        <button onClick={() => signInWithGoogle()} disabled={authing}>Sign in with Google</button>
     );
 }
 
