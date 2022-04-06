@@ -3,8 +3,11 @@ import InputField from '../components/InputField';
 import LeaveTimeDisplay from '../components/LeaveTimeDisplay';
 import { useJsApiLoader } from "@react-google-maps/api";
 import '../App.css';
+import { getAuth, signOut } from 'firebase/auth';
 
 function CalculationPage() {
+    const auth = getAuth();
+
     const [source, setSource] = useState<string>("");
     const [destination, setDestination] = useState<string>("");
     const [time, setTime] = useState<string>("");
@@ -65,6 +68,7 @@ function CalculationPage() {
             <span className="heading">Don't Be Late</span>
             <InputField source={source} setSource={setSource} destination={destination} setDestination={setDestination} time={time} setTime={setTime} getTrafficTime={getTrafficTime}></InputField>
             <LeaveTimeDisplay time={time} trafficTime={trafficTime} />
+            <button onClick={() => signOut(auth)}>Sign Out</button>
         </div>
 
     );
