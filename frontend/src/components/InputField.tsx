@@ -11,49 +11,52 @@ interface lookupProperties {
   getTrafficTime: (e: React.FormEvent) => void;
 }
 
-const InputField: React.FC<lookupProperties> = ({source, setSource, destination, setDestination, time, setTime, getTrafficTime}) => {
+const InputField: React.FC<lookupProperties> = ({ source, setSource, destination, setDestination, time, setTime, getTrafficTime }) => {
 
   return (
-    //Fields for address and time input
-    <form data-testid="field-container" className="input" onSubmit={getTrafficTime}>
-      <input type="text"
-        placeholder="Enter a source"
-        data-testid="source-field"
-        className="inputBox"
-        value={source}
-        onChange={
-          e => setSource(e.target.value)
-        }
-      />
+    
+    <div>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"></link>
+      
+      <form data-testid="field-container" className="input" onSubmit={getTrafficTime}>
+        <input type="text"
+          placeholder="Enter a source"
+          data-testid="source-field"
+          className="inputBox"
+          value={source}
+          onChange={
+            e => setSource(e.target.value)
+          }
+        />
 
-      <input type="text"
-        placeholder="Enter a destination"
-        data-testid="destination-field"
-        className="inputBox"
-        value={destination}
-        onChange={
-          e => setDestination(e.target.value)
-        }
-      />
+        <input type="text"
+          placeholder="Enter a destination"
+          data-testid="destination-field"
+          className="inputBox"
+          value={destination}
+          onChange={
+            e => setDestination(e.target.value)
+          }
+        />
 
-      <input type="time"
-        placeholder="Enter an arrival time"
-        data-testid="arrival-field"
-        className="inputBox"
-        value={time}
-        onChange={
-          e => setTime(e.target.value)
-        }
-      />
+        <input type="time"
+          placeholder="Enter an arrival time"
+          data-testid="arrival-field"
+          className="inputBox"
+          value={time}
+          onChange={
+            e => setTime(e.target.value)
+          }
+        />
 
-      <button type="submit"
-        data-testid="submit-button"
-        className='submitButton'>
-        Submit
-      </button>
+        <button type="submit"
+          data-testid="submit-button"
+          className='submitButton'>
+          Submit
+        </button>
 
-    </form>
-
+      </form>
+    </div>
   )
 }
 

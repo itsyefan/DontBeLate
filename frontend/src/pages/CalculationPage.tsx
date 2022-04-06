@@ -4,6 +4,7 @@ import LeaveTimeDisplay from '../components/LeaveTimeDisplay';
 import { useJsApiLoader } from "@react-google-maps/api";
 import '../App.css';
 import { getAuth, signOut } from 'firebase/auth';
+import { Hero } from '../components/Hero';
 
 function CalculationPage() {
     const auth = getAuth();
@@ -63,12 +64,11 @@ function CalculationPage() {
 
     return (
         <div className="calcPage">
-            <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet"></link>
-
-            <span className="heading">Don't Be Late</span>
+            <button onClick={() => signOut(auth)}>Sign Out</button>
+            <Hero />
             <InputField source={source} setSource={setSource} destination={destination} setDestination={setDestination} time={time} setTime={setTime} getTrafficTime={getTrafficTime}></InputField>
             <LeaveTimeDisplay time={time} trafficTime={trafficTime} />
-            <button onClick={() => signOut(auth)}>Sign Out</button>
+            
         </div>
 
     );

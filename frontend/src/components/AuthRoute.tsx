@@ -12,18 +12,18 @@ export const AuthRoute: React.FC<authProperties> = props => {
     const [loading, setLoading]= useState(false);
 
     useEffect(() => {
-        AuthCheck();
+        const AuthCheck = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setLoading(false);
+            } else {
+                console.log('Please log in');
+                navigate('/register');
+            }
+        });
+
         return () => AuthCheck();
     }, [auth]);
 
-    const AuthCheck = onAuthStateChanged(auth, (user) => {
-        if (user) {
-            setLoading(false);
-        } else {
-            console.log('Please log in');
-            navigate('/register');
-        }
-    });
 
     if (loading){
         return(

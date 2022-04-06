@@ -4,15 +4,12 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #61dafb;
-  font-family: "Akaya Telivigala";
+  font-family: 'Montserrat', sans-serif;
 }
 
-.heading {
-  font-size: 50px;
-  color: white;
-  margin: 30px 0;
-  z-index: 1;
-  text-align: center;
+.authPage {
+  text-align: Center;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
 }

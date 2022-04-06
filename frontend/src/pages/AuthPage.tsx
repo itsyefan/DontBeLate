@@ -6,6 +6,8 @@ import {
     signInWithPopup,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { Hero } from "../components/Hero";
+import '../App.css';
 
 function AuthPage() {
     const auth = getAuth();
@@ -27,7 +29,12 @@ function AuthPage() {
     }
 
     return (
-        <button onClick={() => signInWithGoogle()} disabled={authing}>Sign in with Google</button>
+        <div className="authPage">
+            <Hero />
+            <h2>To access the app, please sign in below</h2>
+            <button onClick={() => signInWithGoogle()} disabled={authing}>Sign in with Google</button>
+        </div>
+            
     );
 }
 
