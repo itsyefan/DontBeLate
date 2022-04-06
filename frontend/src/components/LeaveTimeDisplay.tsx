@@ -1,4 +1,5 @@
 import React from 'react'
+import "./style.css";
 
 interface displayProperties {
     time: string;
@@ -7,10 +8,10 @@ interface displayProperties {
 
 const LeaveTimeDisplay: React.FC<displayProperties> = ({time, trafficTime}) => {
   return (
-    <div>
+    <p className='timeDescription'>
         {console.log(trafficTime)}
         {trafficTime === "" ? "" :calcLeaveTime(time, trafficTime)}
-    </div>
+    </p>
   )
 }
 
@@ -38,7 +39,9 @@ let amOrPm = (minutes: number): string => {
     : convertMinutes;
 
   return suffix === "pm" 
-    ? (convertHours % 12) + ":" + finalMinutes + " " + suffix 
+    ? convertHours === 12 
+      ? (convertHours) + ":" + finalMinutes + " " + suffix 
+      : (convertHours % 12) + ":" + finalMinutes + " " + suffix 
     : convertHours + ":" + finalMinutes + " " + suffix;
 }
 
